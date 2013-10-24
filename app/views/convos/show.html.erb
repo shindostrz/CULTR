@@ -1,0 +1,12 @@
+<h1>Topic: <%= @convo.topic %></h1>
+<div id="show_info">
+  <p>Description: <%= @convo.description %></p>
+  <p>Preferred Age: <%= @convo.age %></p>
+  <p>Preferred Gender: <%= @convo.gender %>
+  </p>
+  <p>Available: <%= @convo.start_time %> to <%= @convo.end_time %></p>
+</div>
+
+<% if @convo.user_id != current_user.id %>
+<a href="/response/<%= @convo.id %>">Respond</a>
+<% end %>

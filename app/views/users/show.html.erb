@@ -1,0 +1,15 @@
+<h1>User Info for <%= @user.name %></h1>
+
+<h3><% if @user.id == current_user.id %>Email: <%= @user.email %> <% end %><br>
+Age: <%= @user.age %><br>
+Gender: <%= @user.gender %><br>
+Interests: <%= @user.interests %><br>
+Fav Writers/Artists: <%= @user.writers %><br>
+Fav Works: <%= @user.works %><br>
+Fav Quotes: <%= @user.quotes %>
+</h3>
+
+<% if @user.id == current_user.id %>
+<p><a href="/users/<%= @user.id %>/edit">Edit Info</a>
+</p>
+<% end %>
