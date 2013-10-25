@@ -11,20 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023232402) do
+ActiveRecord::Schema.define(:version => 20131025000446) do
 
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
     t.string   "topic"
     t.string   "age"
     t.string   "gender"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.string   "latitude"
     t.string   "longitude"
     t.string   "start_time"
     t.string   "end_time"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.text     "loc_desc"
   end
 
   create_table "convos_users", :id => false, :force => true do |t|

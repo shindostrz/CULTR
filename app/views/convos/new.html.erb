@@ -20,9 +20,9 @@
     <input type="checkbox" name="convo[gender][]" value="tg" checked>TransGender</input>
     <input type="checkbox" name="convo[gender][]" value="o" checked>Other</input>
   </p>
-  <!-- Add a location description! -->
   <input type="text" placeholder="start time" name="convo[start_time]">
   <input type="text" placeholder="end time" name="convo[end_time]"><br>
+  <textarea name="convo[loc_desc]" placeholder="Where exactly will you be?" rows="5" cols="40"></textarea>
   <input type="hidden" name="convo[user_id]" value="<%=  @current_user.id %>">
   <input type="hidden" name="convo[latitude]" value="<%= params["lat"] %>">
   <input type="hidden" name="convo[longitude]" value="<%= params["lng"] %>">

@@ -14,6 +14,12 @@ class ConvosController < ApplicationController
     gon.convo_id = @convo.id
     gon.current_user = current_user
     # @convo[:user] = @convo.user
+    # How do I get users for a given convo?
+    @responder = ConvosUser.where("convo_id = ?", @convo.id)
+    @responders_all = []
+    @responder.each do |r|
+      @responders_all << r.user_id
+    end
   end
 
   def new
@@ -21,9 +27,7 @@ class ConvosController < ApplicationController
   end
 
   def create
-
     new_convo = Convo.create(params[:convo])
-    binding.pry
     redirect_to new_convo
   end
 
@@ -33,9 +37,12 @@ class ConvosController < ApplicationController
   end
 
   def edit
+    @convo = Convo.find(params[:id])
   end
 
   def update
+     @convo = Convo.update(params[:id], params[:convo])
+     redirect_to @convo
   end
 
   def delete

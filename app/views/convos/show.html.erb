@@ -5,8 +5,23 @@
   <p>Preferred Gender: <%= @convo.gender %>
   </p>
   <p>Available: <%= @convo.start_time %> to <%= @convo.end_time %></p>
+  <p>Location Detail: <%= @convo.loc_desc %></p>
 </div>
 
-<% if @convo.user_id != current_user.id %>
-<a href="/response/<%= @convo.id %>">Respond</a>
-<% end %>
+<div>
+  <% if (@convo.user_id != current_user.id) && (@responders_all.include?(current_user.id) == false) %>
+    <a href="/response/<%= @convo.id %>">Respond</a>
+  <% elseif %>
+  <% @convo.user_id == current_user.id %>
+    <a href="/convos/<%= @convo.id %>/edit">Edit</a>
+  <% else %>
+  <!-- ROUTE DOES NOT EXIST YET -->
+    <a href="/response/<%=@convo.id %>/destroy">Remove Response</a>
+  <% end %>
+</div>
+
+<div>
+  <% @responder.each do |r| %>
+    <%= r.user_id %>
+  <% end %>
+</div>
