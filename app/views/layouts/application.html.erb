@@ -6,14 +6,27 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!-- Bootstrap core CSS -->
+  <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="jumbotron-narrow.css" rel="stylesheet">
 </head>
 <body>
 
-<% if current_user %>
-  <a href="/logout">Logout</a>
-<% end %>
+<div class="container"
+  <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <% if current_user %>
+            <li class="active"><a href="/logout">Logout</a></li>
+          <% end %>
+          <li><a href="/map">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">CULTR</h3>
+      </div>
 
 <%= yield %>
-
+</div>
 </body>
 </html>

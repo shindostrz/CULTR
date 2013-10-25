@@ -8,8 +8,8 @@
     <option value="Religion" <% if @convo.topic =="Religion" %>SELECTED<% end %>>Religion</option>
     <option value="Culture" <% if @convo.topic =="Culture" %>SELECTED<% end %>>Culture</option>
   </select><br>
-  <textarea name="convo[description]" placeholder="<%= @convo.description %>" rows="5" cols="40"></textarea><br>
-  <input type="text" placeholder="<%= @convo.age %>" name="convo[age]">
+  <textarea name="convo[description]" rows="5" cols="40"><%= @convo.description %></textarea><br>
+  <input type="text" value="<%= @convo.age %>" name="convo[age]">
   <!-- This will be the preferred method for age -->
   <!-- <input type="text" placeholder="min age" name="convo[age_min]"> -->
   <!-- <input type="text" placeholder="max age" name="convo[age_max]"> -->
@@ -21,8 +21,8 @@
     <input type="checkbox" name="convo[gender][]" value="tg" checked>TransGender</input>
     <input type="checkbox" name="convo[gender][]" value="o" checked>Other</input>
   </p>
-  <input type="text" placeholder="<%= @convo.start_time %>" name="convo[start_time]">
-  <input type="text" placeholder="<%= @convo.end_time %>" name="convo[end_time]"><br>
-  <textarea name="convo[loc_desc]" placeholder="<%= @convo.loc_desc %>" rows="5" cols="40"></textarea>
+  <input type="text" value="<%= @convo.start_time %>" name="convo[start_time]">
+  <input type="text" value="<%= @convo.end_time %>" name="convo[end_time]"><br>
+  <textarea name="convo[loc_desc]" rows="5" cols="40"><%= @convo.loc_desc %></textarea><br>
   <input type="submit">
 </form>

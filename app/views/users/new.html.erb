@@ -1,13 +1,34 @@
-<form action="/users" method="post">
-  <input type="text" placeholder="name" name="user[name]">
-  <input type="email" placeholder="email" name="user[email]"><br>
-  <input type="password" placeholder="password" name="user[password]">
-  <input type="password" placeholder="confirm your password" name="user[password_confirmation]"><br>
-  <input type="text" placeholder="age" name="user[age]">
-  <input type="text" placeholder="gender" name="user[gender]"><br>
-  <textarea name="user[interests]" rows="5" cols="40">Interests</textarea><br>
-  <textarea name="user[writers]" rows="5" cols="40">Favorite Writers & Artists</textarea><br>
-<textarea name="user[works]" rows="5" cols="40">Favorite Works of Art/Literature/Philosophy</textarea><br>
-<textarea name="user[quotes]" rows="5" cols="40">Favorite Quotes</textarea>
-  <input type="submit">
-</form>
+<!-- <div class="container"> -->
+  <div class="jumbotron">
+    <h3>Enter your personal information</h3>
+    <form role="form" action="/users" method="post">
+      <div class="form-group">
+        <label for="Email1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="user[name]" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="Password1">Password</label>
+        <input type="password" class="form-control" id="Password1" placeholder="Password" name="user[password]">
+        <label for="Password2">Confirm Password</label>
+        <input type="password" class="form-control" id="Password2" placeholder="Confirm" name="user[password_confirmation]">
+      </div>
+    <div class="form-group">
+      <label for="Age">Age</label>
+        <input type="text" class="form-control" id="Age" placeholder="Age" name="user[age]">
+        <label for="Gender">Gender</label>
+        <input type="text" class="form-control" id="Gender" placeholder="Gender" name="user[gender]">
+      </div>
+    <div class="form-group">
+      <label for="Interests">Interests</label>
+      <textarea id="Interests" class="form-control" rows="3" name="user[interests]"></textarea>
+      <label for="Writers">Favorite Writers & Artists</label>
+      <textarea id="Writers" class="form-control" rows="3" name="user[writers]"></textarea>
+      <label for="Works">Favorite Works of Art/Literature/Philosohpy</label>
+      <textarea id="Works" class="form-control" rows="3" name="user[works]"></textarea>
+      <label for="Quotes">Favorite Quotes</label>
+      <textarea id="Quotes" class="form-control" rows="3" name="user[quotes]"></textarea>
+    </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<!-- </div> -->

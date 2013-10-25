@@ -1,3 +1,4 @@
+<div class="jumbotron">
 <h1>Topic: <%= @convo.topic %></h1>
 <div id="show_info">
   <p>Description: <%= @convo.description %></p>
@@ -11,17 +12,23 @@
 <div>
   <% if (@convo.user_id != current_user.id) && (@responders_all.include?(current_user.id) == false) %>
     <a href="/response/<%= @convo.id %>">Respond</a>
-  <% elseif %>
+  <% elsif %>
   <% @convo.user_id == current_user.id %>
     <a href="/convos/<%= @convo.id %>/edit">Edit</a>
   <% else %>
   <!-- ROUTE DOES NOT EXIST YET -->
-    <a href="/response/<%=@convo.id %>/destroy">Remove Response</a>
+    <strong>You have responded to this convo.</strong> <a href="/response/<%=@convo.id %>/destroy">Remove Response</a>
   <% end %>
 </div>
 
 <div>
-  <% @responder.each do |r| %>
-    <%= r.user_id %>
+  <% if (@responders_all != []) && (@responders_all.include?(current_user.id) == false) %>
+  Respondents:<br>
+    <% @responder.each do |r| %>
+      <a href="/users/<%= r.user_id %>"><%= User.find(r.user_id).name %></a>
+    <% end %>
   <% end %>
+</div>
+
+<a href='/map'>Back to map</a>
 </div>

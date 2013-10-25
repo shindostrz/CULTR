@@ -8,6 +8,8 @@ CULTR::Application.routes.draw do
 
   get '/response/:id' => 'convos#create_response'
 
+  # delete '/response/:id/delete/:id'
+
   resources :sessions, only: [:new, :create]
 
   get '/map' => 'convos#map'
