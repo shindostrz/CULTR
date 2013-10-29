@@ -1,6 +1,5 @@
-<div class="jumbotron">
 <h1>Topic: <%= @convo.topic %></h1>
-<div id="show_info">
+<div id="show_info" style="text-align:left;">
   <p>Description: <%= @convo.description %></p>
   <p>Preferred Age: <%= @convo.age %></p>
   <p>Preferred Gender: <%= @convo.gender %>
@@ -9,7 +8,7 @@
   <p>Location Detail: <%= @convo.loc_desc %></p>
 </div>
 
-<div>
+<div style="text-align:left;">
   <% if (@convo.user_id != current_user.id) && (@responders_all.include?(current_user.id) == false) %>
     <a href="/response/<%= @convo.id %>">Respond</a>
   <% elsif %>
@@ -21,14 +20,14 @@
   <% end %>
 </div>
 
-<div>
+<div style="text-align:right;">
   <% if (@responders_all != []) && (@responders_all.include?(current_user.id) == false) %>
   Respondents:<br>
     <% @responder.each do |r| %>
-      <a href="/users/<%= r.user_id %>"><%= User.find(r.user_id).name %></a>
+      <a href="/users/<%= r.user_id %>"><%= User.find(r.user_id).name %></a><br>
     <% end %>
   <% end %>
 </div>
-
+<div>
 <a href='/map'>Back to map</a>
 </div>

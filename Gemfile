@@ -4,11 +4,13 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-group :development do
+group :test, :development do
   gem 'sqlite3'
   gem 'debugger'
   gem 'pry-rails'
   gem 'pry'
+  gem 'konacha'
+  gem 'rspec-rails'
 end
 
 group :production do
