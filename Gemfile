@@ -11,6 +11,7 @@ group :test, :development do
   gem 'pry'
   gem 'konacha'
   gem 'rspec-rails'
+  gem 'rails-erd'
 end
 
 group :production do

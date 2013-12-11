@@ -16,7 +16,9 @@
     <a href="/convos/<%= @convo.id %>/edit">Edit</a>
   <% else %>
   <!-- ROUTE DOES NOT EXIST YET -->
-    <strong>You have responded to this convo.</strong> <a href="/response/<%=@convo.id %>/destroy">Remove Response</a>
+    <strong>You have responded to this convo.</strong>
+    <%= link_to 'Remove Response', "/response/#{@convo.id}/destroy", :method => :delete %>
+    <!-- <a href="/response/<%=@convo.id %>/destroy">Remove Response</a> -->
   <% end %>
 </div>
 

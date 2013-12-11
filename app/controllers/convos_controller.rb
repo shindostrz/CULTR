@@ -59,7 +59,7 @@ class ConvosController < ApplicationController
       gon.description[convo.id] = convo.description
     end
 
-    render :map
+    render :map, layout: "map"
   end
 
 end

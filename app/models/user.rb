@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   # has_and_belongs_to_many :convos
+  has_many :convos_users
   has_many :convos, :through => :convos_users
 
   before_save :create_remember_token
