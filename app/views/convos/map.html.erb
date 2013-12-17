@@ -1,10 +1,12 @@
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
-<!--[if lte IE 8]>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
-<![endif]-->
-<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-<%= javascript_include_tag "convos" %>
-<div class="row" id="map-row">
-<div id="sidebar" class="col-lg-3 col-md-3"></div>
-<div id="map" class="col-lg-9 col-md-9"></div>
+<%= javascript_include_tag "cultr" %>
+<div id="map_container" class="row">
+  <div class="large-8 columns " id="map"></div>
+  <div ng-controller="ConvoCtrl" class="large-4 columns" id="sidebar">
+    <ul>
+      <li ng-repeat="convo in convos">
+        {{convo.topic}}<br />
+        by {{convo.user}}
+      </li>
+    </ul>
+  </div>
 </div>

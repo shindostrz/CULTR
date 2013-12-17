@@ -2,3 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.off-canvas-wrap, .inner-wrap {
+  height: 100%;
+  position: fixed;
+}
+
+.main-section {
+  height: 100%;
+}
+
+#map_container {
+  max-width: 1500px;
+}
+
+#map {
+height: 100%;
+ }
+
+.row {
+  height:100%;
+}
