@@ -1,10 +1,55 @@
-<div class="jumbotron">
-<h1>ALL THE CONVOS</h1>
+<!DOCTYPE html>
+<html ng-app="cultr">
+<head>
+  <title>cultr</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<% @convos.each do |convo| %>
-  <p><a href="/convos/<%= convo.id %>"><%= convo.topic %></a>
-  <%= convo.description %></p>
-<% end %>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+  <%= include_gon %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
 
-<a href="/map">Convo Map</a>
+</head>
+<body>
+  <div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">cultr</h1>
+      </section>
+
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><a href="/map">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <% if current_user %>
+          <li><a href="/logout">Logout</a></li>
+        <% end %>
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <!-- content goes here -->
+      <div id="map_container" class="row" ng-controller="ConvoCtrl">
+        <div map-div="convos" class="large-8 columns " id="map"></div>
+        <div ng-view class="large-4 columns" id="sidebar"></div>
+      </div>
+    </section>
+
+  <a class="exit-off-canvas"></a>
+  </div>
 </div>
+
+<%= javascript_include_tag "application" %>
+  </body>
+</html>

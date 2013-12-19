@@ -3,5 +3,10 @@ class Convo < ActiveRecord::Base
 
   has_many :convos_users
   has_many :users, :through => :convos_users
+  belongs_to :user
+
+  def self.only_lat_lng
+    self.select([:latitude, :longitude])
+  end
 
 end

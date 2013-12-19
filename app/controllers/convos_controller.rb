@@ -1,16 +1,22 @@
 class ConvosController < ApplicationController
 
-  def index
-    @convos = Convo.all
-    # @convos.each do |convo|
-    #   convo[:user] = convo.user
-    # end
-    # render :json => @convos
+  respond_to :json
 
+  def index
+    convos = Convo.joins(:user).all.map do |convo|
+      convo.as_json.merge({
+        user: convo.user.as_json
+      })
+    end
+
+    respond_to do |format|
+      format.html {render layout: false}
+      format.json {render :json => convos}
+    end
   end
 
   def show
-    @convo = Convo.find(params[:id])
+    @convo = Convo.only_lat_lng.find(params[:id])
     gon.convo_id = @convo.id
     gon.current_user = current_user
     # @convo[:user] = @convo.user
@@ -46,20 +52,6 @@ class ConvosController < ApplicationController
   end
 
   def delete
-  end
-
-  def map
-    @convos = Convo.all
-    gon.coordinates = {}
-    gon.topic = {}
-    gon.description = {}
-    @convos.each do |convo|
-      gon.coordinates[convo.id] = [convo.latitude, convo.longitude]
-      gon.topic[convo.id] = convo.topic
-      gon.description[convo.id] = convo.description
-    end
-
-    render :map, layout: "map"
   end
 
 end
