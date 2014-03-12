@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025000446) do
+ActiveRecord::Schema.define(:version => 20140312065412) do
 
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(:version => 20131025000446) do
     t.text     "loc_desc"
   end
 
-  create_table "convos_users", :id => false, :force => true do |t|
+  add_index "convos", ["user_id"], :name => "index_convos_on_user_id"
+
+  create_table "convos_users", :force => true do |t|
     t.integer "user_id"
     t.integer "convo_id"
   end
