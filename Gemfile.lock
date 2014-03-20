@@ -65,6 +65,8 @@ GEM
     gon (4.1.1)
       actionpack (>= 2.3.0)
       json
+    haml (4.0.4)
+      tilt
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -122,7 +124,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.1.0)
+    rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec-core (2.14.6)
@@ -172,6 +174,7 @@ DEPENDENCIES
   debugger
   geocoder
   gon
+  haml
   jquery-rails
   json
   konacha

@@ -1,0 +1,9 @@
+.jumbotron
+%h1 ALL THE CONVOS
+
+- @convos.each do |convo|
+  %p
+    %a{href: "/convos/<%= convo.id %>">}= convo.topic
+    = convo.description
+
+= link_to 'Convo Map',

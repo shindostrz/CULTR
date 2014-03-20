@@ -22,6 +22,7 @@ gem 'typhoeus'
 gem 'geocoder'
 gem 'json'
 gem 'gon'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
