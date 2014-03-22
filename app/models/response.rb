@@ -1,4 +1,4 @@
-class ConvosUser < ActiveRecord::Base
+class Responses < ActiveRecord::Base
   attr_accessible :convo_id, :user_id
 
   belongs_to :user
