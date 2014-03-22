@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140312065412) do
+ActiveRecord::Schema.define(:version => 20140322005407) do
 
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
-    t.string   "topic"
     t.string   "age"
     t.string   "gender"
     t.text     "description", :limit => 255
@@ -30,17 +29,19 @@ ActiveRecord::Schema.define(:version => 20140312065412) do
 
   add_index "convos", ["user_id"], :name => "index_convos_on_user_id"
 
-  create_table "convos_users", :force => true do |t|
+  create_table "responses", :force => true do |t|
     t.integer "user_id"
     t.integer "convo_id"
   end
+
+  add_index "responses", ["convo_id"], :name => "index_responses_on_convo_id"
+  add_index "responses", ["user_id"], :name => "index_responses_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "age"
-    t.string   "gender"
     t.string   "interests"
     t.string   "writers"
     t.string   "works"
