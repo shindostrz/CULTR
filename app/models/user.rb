@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :age, :gender, :interests, :writers, :works, :quotes, :remember_token
   has_secure_password
 
-  # has_and_belongs_to_many :convos
-  has_and_belongs_to_many :convos
+  has_many :convos
+  has_one :gender_assignment, as: :genderable
+  has_one :gender, through: :gender_assignment
 
   before_save :create_remember_token
 
