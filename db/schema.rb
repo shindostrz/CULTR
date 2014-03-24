@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324034941) do
+ActiveRecord::Schema.define(:version => 20140324190015) do
 
   create_table "categories", :force => true do |t|
     t.string   "cat_name"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20140324034941) do
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
     t.string   "age"
-    t.string   "gender"
     t.text     "description", :limit => 255
     t.string   "latitude"
     t.string   "longitude"
