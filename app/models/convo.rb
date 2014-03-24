@@ -1,5 +1,6 @@
 class Convo < ActiveRecord::Base
-  attr_accessible :user_id, :topic, :age, :gender, :description, :latitude, :longitude, :loc_desc, :start_time, :end_time
+  attr_accessible :user_id, :topic, :age, :description, :latitude, :longitude, :loc_desc, :start_time, :end_time,
+                          :genders_attributes
 
   belongs_to :user
   has_many :users, through: :responses

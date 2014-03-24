@@ -3,4 +3,5 @@ class GenderAssignment < ActiveRecord::Base
 
   belongs_to :gender
   belongs_to :genderable, polymorphic: true
+
 end
