@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_gender_assignment
   end
 
   def edit
@@ -10,10 +11,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
-    # Fix this part with form helpers
-    user.update_attributes(name: params[:user][:name], email: params[:user][:email])
-    redirect_to user_path(user.id)
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    sign_in(@user)
+    redirect_to @user
   end
 
   def create

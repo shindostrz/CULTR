@@ -19,18 +19,22 @@
   .field
     = f.label :password
     %br
-    = f.text_field :password
+    = f.password_field :password
+
+  .field
+    = f.label :password_confirmation, "Confirm Password"
+    %br
+    = f.password_field :password_confirmation
 
   .field
     = f.label :age
     %br
-    = f.number_field(:age, in: 18..120)
+    = f.number_field(:age, in: 18..100)
 
   .field
-    = f.fields_for :genders do |builder|
-      %fieldset
-        = builder.label :gender
-        = builder.select(:gender_id, [['Male', 1], ['Female', 2]])
+    = f.fields_for :gender_assignment do |assign_builder|
+      = assign_builder.label :gender_id, "Gender"
+      = assign_builder.select(:gender_id, [['Male', 1], ['Female', 2]])
 
   .field
     = f.label :interests
