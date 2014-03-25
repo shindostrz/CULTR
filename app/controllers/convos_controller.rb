@@ -15,7 +15,7 @@ class ConvosController < ApplicationController
     gon.current_user = current_user
     # @convo[:user] = @convo.user
     # How do I get users for a given convo?
-    @responder = ConvosUser.where("convo_id = ?", @convo.id)
+    @responder = Response.where("convo_id = ?", @convo.id)
     @responders_all = []
     @responder.each do |r|
       @responders_all << r.user_id
@@ -32,7 +32,7 @@ class ConvosController < ApplicationController
   end
 
   def create_response
-    ConvosUser.create(convo_id: params[:id], user_id: current_user.id)
+    Response.create(convo_id: params[:id], user_id: current_user.id)
     redirect_to '/map'
   end
 
@@ -51,11 +51,11 @@ class ConvosController < ApplicationController
   def map
     @convos = Convo.all
     gon.coordinates = {}
-    gon.topic = {}
+    gon.category = {}
     gon.description = {}
     @convos.each do |convo|
       gon.coordinates[convo.id] = [convo.latitude, convo.longitude]
-      gon.topic[convo.id] = convo.topic
+      gon.category[convo.id] = convo.categories[0].cat_name
       gon.description[convo.id] = convo.description
     end
 

@@ -1,8 +1,10 @@
-<h1>Topic: <%= @convo.topic %></h1>
+<h1>Topic: <%= @convo.categories[0].cat_name %></h1>
 <div id="show_info" style="text-align:left;">
   <p>Description: <%= @convo.description %></p>
   <p>Preferred Age: <%= @convo.age %></p>
-  <p>Preferred Gender: <%= @convo.gender %>
+  <p>Preferred Gender: <% @convo.genders.each do |gender| %>
+    <%= gender.gender_name %>
+    <% end %>
   </p>
   <p>Available: <%= @convo.start_time %> to <%= @convo.end_time %></p>
   <p>Location Detail: <%= @convo.loc_desc %></p>

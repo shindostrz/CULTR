@@ -7,7 +7,7 @@ window.onload = function () {
         map.locate({setView: true, maxZoom: 16});
 
         for (var index in gon.coordinates) {
-          L.marker(gon.coordinates[index]).addTo(map).bindPopup("<strong>" + gon.topic[index] + "</strong><br>" + gon.description[index] + "<br><a href='/convos/" + [index] + "'>Go to convo</a>");
+          L.marker(gon.coordinates[index]).addTo(map).bindPopup("<strong>" + gon.category[index] + "</strong><br>" + gon.description[index] + "<br><a href='/convos/" + [index] + "'>Go to convo</a>");
 
         };
 
