@@ -25,11 +25,11 @@
   </div>
 
   <div class="field">
-    <%= f.fields_for :gender_assignments do |builder| %>
-      <%= builder.label :gender_assignments, "Preferred Genders" %>
-      <br />
-      <%= builder.select(:gender_id, [['Male', 1], ['Female', 2]]) %>
-    <% end %>
+  <%= hidden_field_tag "convo[gender_ids][]", nil%>
+    <% Gender.all.each do |gender| %>
+    <%= check_box_tag "convo[gender_ids][]", gender.id, @convo.category_ids.include?(gender.id), id: dom_id(gender) %>
+    <%= label_tag dom_id(gender), gender.gender_name %><br/>
+  <% end %>
     </div>
 
   <div class="actions">

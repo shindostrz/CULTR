@@ -20,8 +20,6 @@ class ConvosController < ApplicationController
 
   def new
     @convo = Convo.new
-    @convo.categories.build
-    @convo.gender_assignments.build
   end
 
   def create
