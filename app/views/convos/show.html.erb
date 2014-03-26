@@ -11,10 +11,10 @@
 </div>
 
 <div style="text-align:left;">
-  <% if (@convo.user_id != current_user.id) && (@responders_all.include?(current_user.id) == false) %>
+  <% if (@convo.user_id != @current_user.id) && (@responders_all.include?(@current_user.id) == false) %>
     <a href="/response/<%= @convo.id %>">Respond</a>
   <% elsif %>
-  <% @convo.user_id == current_user.id %>
+  <% @convo.user_id == @current_user.id %>
     <a href="/convos/<%= @convo.id %>/edit">Edit</a>
   <% else %>
   <!-- ROUTE DOES NOT EXIST YET -->
