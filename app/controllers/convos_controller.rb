@@ -2,10 +2,6 @@ class ConvosController < ApplicationController
 
   def index
     @convos = Convo.all
-    # @convos.each do |convo|
-    #   convo[:user] = convo.user
-    # end
-    # render :json => @convos
 
   end
 
@@ -23,7 +19,9 @@ class ConvosController < ApplicationController
   end
 
   def new
-    # redirect_to new_convo_path
+    @convo = Convo.new
+    @convo.categories.build
+    @convo.gender_assignments.build
   end
 
   def create
