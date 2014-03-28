@@ -6,9 +6,7 @@ CULTR::Application.routes.draw do
     resources :convos
   end
 
-  get '/response/:id' => 'convos#create_response'
-
-  delete '/response/:id/destroy' => 'responses#destroy'
+  resources :responses, except: :index
 
   resources :sessions, only: [:new, :create]
 
