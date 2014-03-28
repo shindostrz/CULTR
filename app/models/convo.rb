@@ -1,7 +1,6 @@
 class Convo < ActiveRecord::Base
   attr_accessible :user_id, :age, :description, :latitude, :longitude, :loc_desc, :start_time, :end_time,
                           :genders_attributes, :categories_attributes, :category_ids, :gender_ids
-# Necessary to include the _attributes?
 
   belongs_to :user
   has_many :users, through: :responses
@@ -10,4 +9,5 @@ class Convo < ActiveRecord::Base
   has_many :categorizations
   has_many :categories, through: :categorizations
 
+  accepts_nested_attributes_for :categories
 end

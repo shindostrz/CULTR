@@ -20,6 +20,7 @@ class ConvosController < ApplicationController
   def new
     @user = current_user
     @convo = @user.convos.new
+    @categories = Category.all
   end
 
   def create
@@ -29,12 +30,14 @@ class ConvosController < ApplicationController
   end
 
   def edit
-    @convo = Convo.find(params[:id])
+    @user = current_user
+    @convo = @user.convos.find(params[:id])
   end
 
   def update
-    @convo = Convo.update(params[:id], params[:convo])
-    redirect_to @convo
+    @user = current_user
+    @convo = @user.convos.update(params[:id], params[:convo])
+    redirect_to user_convo_path(@user.id, @convo.id)
   end
 
   def delete

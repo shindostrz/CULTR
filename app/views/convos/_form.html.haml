@@ -24,7 +24,7 @@
   .field
     = hidden_field_tag "convo[gender_ids][]", nil
     - Gender.all.each do |gender|
-      = check_box_tag "convo[gender_ids][]", gender.id, @convo.category_ids.include?(gender.id), id: dom_id(gender)
+      = check_box_tag "convo[gender_ids][]", gender.id, @convo.gender_ids.include?(gender.id), id: dom_id(gender)
       = label_tag dom_id(gender), gender.gender_name
       %br
 

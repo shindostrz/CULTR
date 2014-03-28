@@ -15,7 +15,7 @@
     <%= link_to 'Respond', new_response_path(@convo.id) %>
   <% elsif %>
   <% @convo.user_id == @current_user.id %>
-    <a href="users/<%= @convo.user_id %>/convos/<%= @convo.id %>/edit">Edit</a>
+    <a href="/users/<%= @convo.user_id %>/convos/<%= @convo.id %>/edit">Edit</a>
   <% else %>
   <!-- ROUTE DOES NOT EXIST YET -->
     <strong>You have responded to this convo.</strong>
