@@ -12,15 +12,15 @@
 
 <div style="text-align:left;">
   <% if (@convo.user_id != @current_user.id) && (@responders_all.include?(@current_user.id) == false) %>
-    <a href="/response/<%= @convo.id %>">Respond</a>
+    <%= link_to 'Respond', new_response_path(@convo.id) %>
   <% elsif %>
   <% @convo.user_id == @current_user.id %>
-    <a href="/convos/<%= @convo.id %>/edit">Edit</a>
+    <a href="users/<%= @convo.user_id %>/convos/<%= @convo.id %>/edit">Edit</a>
   <% else %>
   <!-- ROUTE DOES NOT EXIST YET -->
     <strong>You have responded to this convo.</strong>
-    <%= link_to 'Remove Response', "/response/#{@convo.id}/destroy", :method => :delete %>
-    <!-- <a href="/response/<%=@convo.id %>/destroy">Remove Response</a> -->
+    <%= link_to 'Remove Response', "/responses/#{@convo.id}/destroy", :method => :delete %>
+    <!-- <a href="/responses/<%=@convo.id %>/destroy">Remove Response</a> -->
   <% end %>
 </div>
 
