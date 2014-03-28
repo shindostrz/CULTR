@@ -1,7 +1,7 @@
-<%= form_for @convo do |f| %>
+<%= form_for [@user, @convo] do |f| %>
   <% if @convo.errors.any? %>
     <div class="error_messages">
-      <h2><%= pluralize(@user.error.count, "error") %> prohibited this convo from being saved:</h2>
+      <h2><%= pluralize(@convo.error.count, "error") %> prohibited this convo from being saved:</h2>
       <ul>
       <% @convo.errors.full_messages.each do |msg| %>
         <li> <%= msg %> </li>

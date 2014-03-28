@@ -2,7 +2,6 @@ class ConvosController < ApplicationController
 
   def index
     @convos = Convo.all
-
   end
 
   def show
@@ -20,6 +19,7 @@ class ConvosController < ApplicationController
 
   def new
     @convo = Convo.new
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -27,24 +27,20 @@ class ConvosController < ApplicationController
     redirect_to new_convo
   end
 
-  def create_response
-    Response.create(convo_id: params[:id], user_id: current_user.id)
-    redirect_to '/map'
-  end
-
   def edit
     @convo = Convo.find(params[:id])
   end
 
   def update
-     @convo = Convo.update(params[:id], params[:convo])
-     redirect_to @convo
+    @convo = Convo.update(params[:id], params[:convo])
+    redirect_to @convo
   end
 
   def delete
   end
 
   def map
+    gon.current_user = current_user
     @convos = Convo.all
     gon.coordinates = {}
     gon.category = {}
