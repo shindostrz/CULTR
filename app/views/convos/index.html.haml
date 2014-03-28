@@ -3,7 +3,7 @@
 
   - @convos.each do |convo|
     %p
-      %a{href:"users/#{convo.user_id}/convos/#{convo.id}"}= convo.categories[0].cat_name
+      %a{href:"/users/#{convo.user_id}/convos/#{convo.id}"}= convo.categories[0].cat_name
       = convo.description
 
   = link_to 'Convo Map', map_path

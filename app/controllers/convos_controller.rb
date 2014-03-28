@@ -18,13 +18,14 @@ class ConvosController < ApplicationController
   end
 
   def new
-    @convo = Convo.new
-    @user = User.find(params[:user_id])
+    @user = current_user
+    @convo = @user.convos.new
   end
 
   def create
-    new_convo = Convo.create(params[:convo])
-    redirect_to new_convo
+    @user = current_user
+    @convo = @user.convos.create(params[:convo])
+    redirect_to user_convos_path(@user)
   end
 
   def edit
