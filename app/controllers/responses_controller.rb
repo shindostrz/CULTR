@@ -2,7 +2,6 @@ class ResponsesController < ApplicationController
 
   def new
     Response.new(params[:convo])
-    binding.pry
   end
 
   def destroy

@@ -15,6 +15,7 @@ class ConvosController < ApplicationController
     @responder.each do |r|
       @responders_all << r.user_id
     end
+    @response = current_user.responses.new
   end
 
   def new
