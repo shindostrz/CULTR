@@ -10,6 +10,8 @@
             = msg
 
   .field
+    Topics
+    %br
     = hidden_field_tag "convo[category_ids][]", nil
     - Category.all.each do |category|
       = check_box_tag "convo[category_ids][]", category.id, @convo.category_ids.include?(category.id), id: dom_id(category)
@@ -22,6 +24,8 @@
     = f.text_area(:description, size: "34x3")
 
   .field
+    Preferred Genders
+    %br
     = hidden_field_tag "convo[gender_ids][]", nil
     - Gender.all.each do |gender|
       = check_box_tag "convo[gender_ids][]", gender.id, @convo.gender_ids.include?(gender.id), id: dom_id(gender)
