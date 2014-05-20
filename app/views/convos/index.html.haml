@@ -1,6 +1,5 @@
 .jumbotron
-  %h1 #{ user }'s Convos
-
+  %h1 All Convos
   - @convos.each do |convo|
     %p
       %a{href:"/users/#{convo.user_id}/convos/#{convo.id}"}= convo.categories[0].cat_name
