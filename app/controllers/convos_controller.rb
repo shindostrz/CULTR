@@ -22,6 +22,8 @@ class ConvosController < ApplicationController
     @user = current_user
     @convo = @user.convos.new
     @categories = Category.all
+    @latitude = params[:lat]
+    @longitude = params[:lng]
   end
 
   def create
