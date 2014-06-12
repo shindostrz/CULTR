@@ -18,7 +18,6 @@ group :production do
   gem 'pg'
 end
 
-gem 'typhoeus'
 gem 'geocoder'
 gem 'json'
 gem 'gon'
