@@ -9,9 +9,14 @@
           %li
             = msg
 
+  / Passes the lat/lng through the params from the map
+  = f.hidden_field :longitude, :value => @longitude
+  = f.hidden_field :latitude, :value => @latitude
+
   .field
     Topics
     %br
+    / Populates the Topics field with entries from the database
     = hidden_field_tag "convo[category_ids][]", nil
     - Category.all.each do |category|
       = check_box_tag "convo[category_ids][]", category.id, @convo.category_ids.include?(category.id), id: dom_id(category)
