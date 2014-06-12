@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :convos
   has_many :responses
-  has_many :convos, through: :responses
+  # has_many :convos, through: :responses
   has_one :gender_assignment, as: :genderable
   has_one :gender, through: :gender_assignment
 
