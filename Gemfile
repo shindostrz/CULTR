@@ -22,6 +22,7 @@ gem 'geocoder'
 gem 'json'
 gem 'gon'
 gem 'haml'
+gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
