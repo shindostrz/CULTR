@@ -6,31 +6,6 @@ Map =
     @addMarkers()
     @newConvoMarker()
 
-
-  newConvoMarker: ->
-    @map.on "click", (e) =>
-      # new_convo_url = "<a href='users/#{ gon.current_user.id }/convos/new/?lat=#{ e.latlng['lat'] }&lng=#{ e.latlng['lng'] }'>Start a new convo here</a>"
-
-      # removes last marker if a new marker is dropped
-      @map.removeLayer @marker if @marker
-      @createMarker(e);
-
-      # makes marker draggable and opens a new popup
-      @marker.on "dragend", (e) =>
-        new_convo_url = "<a href='users/#{gon.current_user}/convos/new/?lat=" +
-          e.target._latlng["lat"] + "&lng=" +
-          e.target._latlng["lng"] + "'>" +
-          "Start a new convo here</a>"
-        @marker.bindPopup(new_convo_url).addTo(@map).openPopup()
-
-  createMarker: (e) ->
-    new_convo_url = "<a href='users/#{ gon.current_user.id }/convos/new/?lat=#{ e.latlng['lat'] }&lng=#{ e.latlng['lng'] }'>Start a new convo here</a>"
-    @marker = new L.Marker(e.latlng,
-          draggable: true
-        )
-        @map.addLayer @marker
-        @marker.bindPopup(new_convo_url).addTo(@map).openPopup()
-
   addMapLayer: ->
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png",
       attribution: "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors"
@@ -44,6 +19,31 @@ Map =
           #{gon.category[index]}</strong><br>
           #{gon.description[index]}<br><a href='users/
           #{gon.user[index]}/convos/#{[index]}'>Go to convo</a>"
+
+  newConvoMarker: ->
+    @map.on "click", (e) =>
+
+      # removes last marker if a new marker is dropped
+      @map.removeLayer @marker if @marker
+      newConvoLink = @createLink(e)
+      @createMarker(e, newConvoLink)
+
+      # makes marker draggable and opens a new popup
+      @marker.on "dragend", (e) =>
+        newConvoLink = @createLink(e)
+        @marker.bindPopup(newConvoLink).addTo(@map).openPopup()
+
+  createLink: (e) ->
+    if e.target._latlng then e.latlng = e.target._latlng
+    "<a href='users/#{ gon.current_user.id }/convos/new/?lat=#{ e.latlng['lat'] }&lng=#{ e.latlng['lng'] }'>Start a new convo here</a>"
+
+  createMarker: (e, link) ->
+    @marker = new L.Marker(e.latlng,
+          draggable: true
+        )
+        @map.addLayer @marker
+        @marker.bindPopup(link).addTo(@map).openPopup()
+
 
 window.onload = ->
   Map.init()
