@@ -15,10 +15,10 @@ Map =
     for index of gon.coordinates
       # Temporary if statement for dev purposes
       if gon.coordinates[index][0]?
-        L.marker(gon.coordinates[index]).addTo(@map).bindPopup "<strong>
-          #{gon.category[index]}</strong><br>
-          #{gon.description[index]}<br><a href='users/
-          #{gon.user[index]}/convos/#{[index]}'>Go to convo</a>"
+        L.marker(gon.coordinates[index]).addTo(@map).bindPopup "<strong>"+
+          "#{gon.category[index]}</strong><br>"+
+          "#{gon.description[index]}<br><a href='users/"+
+          "#{gon.user[index]}/convos/#{[index]}'>Go to convo</a>"
 
   newConvoMarker: ->
     @map.on "click", (e) =>
@@ -35,7 +35,8 @@ Map =
 
   createLink: (e) ->
     if e.target._latlng then e.latlng = e.target._latlng
-    "<a href='users/#{ gon.current_user.id }/convos/new/?lat=#{ e.latlng['lat'] }&lng=#{ e.latlng['lng'] }'>Start a new convo here</a>"
+    "<a href='users/#{ gon.current_user.id }/convos/new/?lat="+
+    "#{ e.latlng['lat'] }&lng=#{ e.latlng['lng'] }'>Start a new convo here</a>"
 
   createMarker: (e, link) ->
     @marker = new L.Marker(e.latlng,
