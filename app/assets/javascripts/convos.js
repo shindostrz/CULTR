@@ -8,9 +8,13 @@ window.onload = function () {
 
         for (var index in gon.coordinates) {
           if (gon.coordinates[index][0]) {
-          L.marker(gon.coordinates[index]).addTo(map).bindPopup("<strong>" + gon.category[index] + "</strong><br>" + gon.description[index] + "<br><a href='/convos/" + [index] + "'>Go to convo</a>");
+            L.marker(gon.coordinates[index]).addTo(map).bindPopup(
+              "<strong>" + gon.category[index] + "</strong><br>" +
+              gon.description[index] +
+              "<br><a href='users/"+ gon.user[index] + "/convos/" + [index] +
+              "'>Go to convo</a>");
+          }
         }
-        };
 
   var marker;
         map.on('click', function(e){
