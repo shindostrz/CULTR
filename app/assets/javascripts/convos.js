@@ -18,7 +18,10 @@ window.onload = function () {
 
   var marker;
         map.on('click', function(e){
-          new_convo_url ="<a href='users/" + gon.current_user.id +"/convos/new/?lat=" + e.latlng["lat"] + "&lng=" +e.latlng["lng"] + "'>" + "Start a new convo here</a>";
+          new_convo_url ="<a href='users/" +
+                                    gon.current_user.id + "/convos/new/?lat=" +
+                                    e.latlng["lat"] + "&lng=" +
+                                    e.latlng["lng"] +"'>" + "Start a new convo here</a>";
           // removes last marker if a new marker is dropped
           if (marker) {
             map.removeLayer(marker);
