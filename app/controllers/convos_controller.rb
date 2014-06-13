@@ -49,13 +49,12 @@ class ConvosController < ApplicationController
   def map
     gon.current_user = current_user
     @convos = Convo.all
-    gon.coordinates = {}
-    gon.category = {}
-    gon.description = {}
+    gon.coordinates, gon.category, gon.description, gon.user = {},{},{},{}
     @convos.each do |convo|
       gon.coordinates[convo.id] = [convo.latitude, convo.longitude]
       gon.category[convo.id] = convo.categories[0].cat_name
       gon.description[convo.id] = convo.description
+      gon.user[convo.id] = convo.user.id
     end
 
     render :map, layout: "map"
