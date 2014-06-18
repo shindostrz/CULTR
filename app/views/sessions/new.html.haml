@@ -1,0 +1,13 @@
+%h1 Welcome to CULTR
+
+%p.lead The modern way to strike up conversation about philosophy, art, literature, and more!
+
+%p
+  %a.btn.btn-lg.btn-success{href:"/auth/facebook"} Sign in with Facebook
+
+/ %h2 Log In
+
+/ %form{action:"/sessions", method:"post"}
+/   %input{type:"text", placeholder:"email", name:"user[email]"}
+/   %input{type:"password", placeholder:"password", name:"user[password]"}
+/   %input{type:"submit"}
