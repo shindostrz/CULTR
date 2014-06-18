@@ -22,7 +22,7 @@ gem 'geocoder'
 gem 'json'
 gem 'gon'
 gem 'haml'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 gem 'foreman'
 
 # Gems used only for assets and not required
